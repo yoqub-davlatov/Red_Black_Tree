@@ -1,10 +1,7 @@
-// @author Yoqub Davlatov
+#pragma once
 
 #include <iostream>
-#include <queue>
-using namespace std;
-
-
+#include <stack>
 template <typename T>
 struct Node
 {
@@ -275,6 +272,18 @@ private:
         rightRotate(node->right);
         leftRotate(node);
     }
+
+    void dtorHelper(Node<T>* node)
+    {
+        if (!node)
+        {
+            return;
+        }
+        dtorHelper(node->left);
+        dtorHelper(node->right);
+        delete node;
+    }
+    
 public:
     void insert(const T &node)
     {
@@ -293,55 +302,27 @@ public:
 
     void print()
     {
-        queue<Node<T>*> q;
-        q.push(root);
-        int cnt = 2;
-        while (q.size())
+        // iterative inorder traversal
+        std::stack<Node<T>*> st;
+        Node<T>* it = root;
+        
+        while(st.size() or it)
         {
-            int n = q.size();
-            for (int i = 0; i < n; i++)
+            while(it)
             {
-                Node<T> *node = q.front();
-                q.pop();
-                cout << node->value << ' ';
-                if (node->left)
-                {
-                    cout << cnt++ << ' ';
-                    q.push(node->left);
-                }
-                else
-                {
-                    cout << -1 << ' ';
-                }
-                if (node->right)
-                {
-                    cout << cnt++ << ' ';
-                    q.push(node->right);
-                }
-                else
-                {
-                    cout << -1 << ' ';
-                }
-                cout << endl;
+                st.push(it);
+                it = it->left;
             }
+            it = st.top();
+            st.pop();
+            std::cout << it->value << ' ';
+            it = it->right;
         }
+        std::cout << std::endl;
+    }
 
+    ~RedBlackTree()
+    {
+        dtorHelper(root);
     }
 };
-
-
-int main()
-{
-    RedBlackTree<int> rbt;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++)
-    {
-        int x;
-        cin >> x;
-        rbt.insert(x);
-    }
-    cout << n << endl;
-    rbt.print();
-    cout << 1 << endl;
-}
