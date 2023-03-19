@@ -8,17 +8,18 @@ RedBlackTree Invariants:
 5. No path can have two consecutive red nodes
 6. Null nodes are always black
 
-
+<pre>
 Rotations:
-Note: gp - grandparent, p - parent.
+##
+Note: gp - grandparent, p - parent. <br />
 
-4                               4                   
- \                             /                    
-  6                           6                     
+4                               4                
+ \                             /         ##           
+  6                           6           ##          
    \                         /                      
     8                       8                       
 left(gp) rotation        right(gp) rotation         
-RR case                  LL case                    
+RR case                  <br />LL case                    
 
    4                                8
     \                              /
@@ -26,12 +27,15 @@ RR case                  LL case
     /                              \
    6                                6
 right(p)-left(g) rotation      left(p)-right(gp) rotation
-RL case                        LR case
+RL case                        <br />LR case
 
 Re-balancing:
 
-1) Black Uncle -> Rotate  
+1) Black Uncle -> Rotate 
+## 
 After rotation: Parent is BLACK, and two children are RED
 
 2) Red Uncle -> Color flip
+##
 After color flip: Parent is RED, and two children are BLACK
+</pre>
