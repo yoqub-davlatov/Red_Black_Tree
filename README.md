@@ -10,8 +10,8 @@ RedBlackTree Invariants:
 
 <pre>
 Rotations:
-##
-Note: gp - grandparent, p - parent. <br />
+
+Note: gp - grandparent, p - parent.
 
 4                               4                
  \                             /         ##           
@@ -19,7 +19,7 @@ Note: gp - grandparent, p - parent. <br />
    \                         /                      
     8                       8                       
 left(gp) rotation        right(gp) rotation         
-RR case                  <br />LL case                    
+RR case                  LL case                    
 
    4                                8
     \                              /
@@ -27,15 +27,15 @@ RR case                  <br />LL case
     /                              \
    6                                6
 right(p)-left(g) rotation      left(p)-right(gp) rotation
-RL case                        <br />LR case
+RL case                        LR case
 
 Re-balancing:
 
 1) Black Uncle -> Rotate 
-## 
+
 After rotation: Parent is BLACK, and two children are RED
 
 2) Red Uncle -> Color flip
-##
+
 After color flip: Parent is RED, and two children are BLACK
 </pre>
