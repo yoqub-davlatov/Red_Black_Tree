@@ -14,8 +14,8 @@ Rotations:
 Note: gp - grandparent, p - parent.
 
 4                               4                
- \                             /         ##           
-  6                           6           ##          
+ \                             /                   
+  6                           6                    
    \                         /                      
     8                       8                       
 left(gp) rotation        right(gp) rotation         
